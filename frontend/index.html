@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f2">
+  <title>Fieldnotes | Document QA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="library-panel" aria-label="Document library">
+      <a class="brand" href="/" aria-label="Fieldnotes home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span>fieldnotes<span class="brand-period">.</span></span>
+      </a>
+      <div class="library-heading">
+        <div>
+          <p class="eyebrow">YOUR WORKSPACE</p>
+          <h1>Library</h1>
+        </div>
+        <span class="count-badge" id="document-count">0</span>
+      </div>
+      <label class="dropzone" id="dropzone" for="file-picker" tabindex="0">
+        <input id="file-picker" type="file" accept=".pdf,.txt,.docx,application/pdf,text/plain,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+        <span class="upload-icon" aria-hidden="true">↑</span>
+        <strong>Drop files to add</strong>
+        <span>or <span class="text-link">browse your computer</span></span>
+        <small>PDF, TXT, DOCX <i>·</i> up to 10 MB</small>
+      </label>
+      <div class="section-label">
+        <span>Documents</span>
+        <button class="icon-button" id="refresh-documents" type="button" aria-label="Refresh documents" title="Refresh documents">↻</button>
+      </div>
+      <div class="document-list" id="document-list" aria-live="polite">
+        <div class="empty-library">Your uploaded documents will appear here.</div>
+      </div>
+      <div class="library-footnote">
+        <span class="status-dot"></span>
+        <span>Private workspace</span>
+        <span class="footnote-separator">·</span>
+        <span>Local index</span>
+      </div>
+    </aside>
+
+    <main class="workbench">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong>Ask documents</strong></div>
+        <div class="connection-status"><span class="status-dot"></span><span>Ready</span></div>
+      </header>
+      <section class="chat-layout" aria-label="Document question and answer">
+        <div class="conversation-column">
+          <div class="intro-block">
+            <p class="eyebrow">DOCUMENT INTELLIGENCE</p>
+            <h2>Find the thread<br>through your files.</h2>
+            <p class="intro-copy">Ask a question across your library. Answers are grounded in your documents and linked back to their sources.</p>
+          </div>
+          <div class="conversation" id="conversation" aria-live="polite">
+            <div class="welcome-note" id="welcome-note">
+              <span class="note-mark" aria-hidden="true">↳</span>
+              <div><strong>Start with a question</strong><p>Try a concept, a detail, or a comparison across documents.</p></div>
+            </div>
+          </div>
+          <form class="question-form" id="question-form">
+            <label class="sr-only" for="question-input">Ask a question about your documents</label>
+            <textarea id="question-input" rows="1" maxlength="4000" placeholder="Ask anything about your documents…" required></textarea>
+            <button class="send-button" type="submit" aria-label="Send question" title="Send question"><span aria-hidden="true">↑</span></button>
+          </form>
+          <p class="input-hint">Answers use only retrieved passages. Always check the cited source.</p>
+        </div>
+        <aside class="sources-column" aria-label="Answer sources">
+          <div class="sources-heading">
+            <div><p class="eyebrow">TRACEABILITY</p><h3>Sources</h3></div>
+            <span class="source-count" id="source-count">—</span>
+          </div>
+          <div class="sources-body" id="sources-body">
+            <div class="sources-empty"><span aria-hidden="true">⌁</span><p>Sources will appear with each answer.</p></div>
+          </div>
+          <div class="sources-footer"><span class="mini-shield" aria-hidden="true">◈</span>Every answer is grounded in retrieved text.</div>
+        </aside>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
+</html>

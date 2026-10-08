@@ -1,0 +1,11 @@
+Retrieval-Augmented Generation Fundamentals
+
+Retrieval-augmented generation (RAG) combines information retrieval with text generation. Instead of asking a language model to answer from its parameters alone, a RAG system first searches a document collection for relevant passages. It then supplies those passages to the language model as context for answering a question.
+
+A typical RAG pipeline has five stages: document ingestion, chunking, embedding, retrieval, and generation. During ingestion, source files are parsed into text. Chunking divides long text into smaller passages while preserving source metadata. An embedding model converts each passage into a numerical vector. At query time, the question is embedded and compared with passage vectors. The most relevant passages are added to the prompt, and the generator produces a response grounded in those passages.
+
+Chunk size affects both retrieval precision and context coverage. Very small chunks can omit important surrounding information, while very large chunks can add irrelevant material and consume more context. Overlap between adjacent chunks helps preserve facts that fall near a boundary. Each chunk should retain its document identifier, filename, page number when available, and chunk index so the system can cite its source.
+
+For normalized vectors, cosine similarity is equivalent to the inner product. A vector index such as FAISS can therefore use an inner-product index to perform efficient cosine-similarity search. The index stores vectors, while a separate mapping stores vector identifiers and source metadata. Removing a document requires deleting its vectors as well as its metadata and original file.
+
+RAG can reduce unsupported answers by limiting the model's evidence to retrieved context, but retrieval does not guarantee correctness. The generator should be instructed to use only supplied passages, avoid inventing facts, and say when the answer is not present. Applications should return citations and relevance scores so users can inspect the source passages. Evaluation should separately measure retrieval quality and answer correctness, because a good answer depends on finding the right evidence first.

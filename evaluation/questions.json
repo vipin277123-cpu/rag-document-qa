@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What does retrieval-augmented generation combine?",
+    "expected_answer": "It combines information retrieval with text generation, supplying retrieved document passages as context to a language model.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "What are the five stages of a typical RAG pipeline?",
+    "expected_answer": "Document ingestion, chunking, embedding, retrieval, and generation.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "Why does chunking use overlap?",
+    "expected_answer": "Overlap helps preserve facts that fall near boundaries between adjacent chunks.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "What metadata should each chunk retain for citations?",
+    "expected_answer": "Document identifier, filename, page number when available, and chunk index.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "When is cosine similarity equivalent to inner product?",
+    "expected_answer": "When the vectors are normalized.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "What does FAISS store, and where should source metadata live?",
+    "expected_answer": "FAISS stores vectors; a separate mapping stores vector identifiers and source metadata.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "What must be removed when deleting a document from a RAG system?",
+    "expected_answer": "Its vectors, associated metadata, and original file.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "How should a generator respond if the answer is missing from retrieved context?",
+    "expected_answer": "It should say the answer is not present rather than inventing facts.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "Why should evaluation measure retrieval and answer correctness separately?",
+    "expected_answer": "Because answer quality depends on finding the right evidence first, and retrieval quality and generation correctness are distinct.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  },
+  {
+    "question": "What is one risk of using very large chunks?",
+    "expected_answer": "They may include irrelevant material and consume more context.",
+    "expected_source": "rag_fundamentals.txt",
+    "expected_page": 1
+  }
+]

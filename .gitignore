@@ -1,0 +1,28 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+node_modules/
+dist/
+build/
+.ipynb_checkpoints/
+
+# User uploads and generated vector index/metadata
+/data/uploads/**
+!/data/uploads/.gitkeep
+/vectorstore/**
+!/vectorstore/.gitkeep
+
+# Local model and tokenizer caches
+.cache/
+/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
